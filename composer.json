@@ -1,0 +1,10 @@
+{
+    "name": "mediawiki/mediawiki",
+    "type": "project",
+    "description": "Free software wiki application developed by the Wikimedia Foundation and others",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "mediawiki/core": "1.*"
+    }
+}
