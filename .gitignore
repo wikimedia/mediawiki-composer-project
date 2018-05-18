@@ -1,1 +1,4 @@
+composer.lock
+/LocalSettings.php
+/html/core/
 /vendor/
