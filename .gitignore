@@ -1,4 +1,6 @@
 composer.lock
 /LocalSettings.php
 /html/core/
+/html/skins/
+/html/extensions/
 /vendor/
