@@ -1,5 +1,5 @@
 {
-    "name": "mediawiki/project",
+    "name": "davidbarratt/mediawiki",
     "type": "project",
     "description": "Free software wiki application developed by the Wikimedia Foundation and others",
     "minimum-stability": "dev",
