@@ -17,7 +17,8 @@ function mwProjectDefaultConfig() {
 
   // If the config file is unreadable, throw the standard error.
   if ( !is_readable( MW_CONFIG_FILE ) ) {
-    wfWebStartNoLocalSettings();
+		require_once "$IP/includes/NoLocalSettings.php";
+		die();
   }
 
   require_once MW_CONFIG_FILE;
