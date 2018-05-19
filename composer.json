@@ -8,17 +8,23 @@
         "composer/installers": "dev-master",
         "mediawiki/core": "dev-master"
     },
-    "repositories": [
-        {
+    "repositories": {
+        "mediawiki": {
             "type": "vcs",
             "url": "https://github.com/wikimedia/mediawiki"
         }
-    ],
+    },
     "extra": {
-       "installer-paths": {
-           "html/core/": ["type:mediawiki-core"],
-           "html/extensions/{$name}/": ["type:mediawiki-extension"],
-           "html/skins/{$name}/": ["type:mediawiki-skin"]
-       }
-   }
+        "installer-paths": {
+            "html/core/": [
+                "type:mediawiki-core"
+            ],
+            "html/extensions/{$name}/": [
+                "type:mediawiki-extension"
+            ],
+            "html/skins/{$name}/": [
+                "type:mediawiki-skin"
+            ]
+        }
+    }
 }
