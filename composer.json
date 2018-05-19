@@ -4,6 +4,7 @@
     "description": "Free software wiki application developed by the Wikimedia Foundation and others",
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "license": "GPL-2.0-or-later",
     "require": {
         "composer/installers": "dev-master",
         "mediawiki/core": "dev-master",
