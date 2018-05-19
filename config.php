@@ -1,8 +1,5 @@
 <?php
 
-// @TODO Remove this!
-ini_set('opcache.enable', 0);
-
 const MW_CONFIG_FILE =  __DIR__. '/LocalSettings.php';
 const MW_VENDOR_DIR = __DIR__ . '/vendor/';
 const MW_CONFIG_CALLBACK = 'mwProjectDefaultConfig';
