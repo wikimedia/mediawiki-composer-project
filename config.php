@@ -13,7 +13,7 @@ function mwProjectDefaultConfig() {
   $wgExtensionDirectory = __DIR__ . '/html/extensions/';
   $wgExtensionAssetsPath = '/extensions/';
   $wgStyleDirectory = __DIR__ . '/html/skins/';
-  $wgStylePath = '/skins';
+  $wgStylePath = '/skins/';
 
   // If the config file is unreadable, throw the standard error.
   if ( !is_readable( MW_CONFIG_FILE ) ) {
