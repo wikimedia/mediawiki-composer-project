@@ -1,0 +1,50 @@
+From eda6bb991c4a579484ab4c3f02b4526dbc719747 Mon Sep 17 00:00:00 2001
+From: David Barratt <dbarratt@wikimedia.org>
+Date: Fri, 18 May 2018 16:25:37 +0200
+Subject: [PATCH] Allow the vendor directory to be configurable.
+
+The location of the vendor directory can be configured in Composer, but cannot
+be configured inside of MediaWiki. The vendor directory should be configurable
+so users can store the vendor directory outside of the webroot.
+
+Bug: T194880
+Change-Id: I416ae0521fbb52f6150727ceeb3325a364e3cdfe
+---
+
+diff --git a/includes/PHPVersionCheck.php b/includes/PHPVersionCheck.php
+index cfe889f..c37105a 100644
+--- a/includes/PHPVersionCheck.php
++++ b/includes/PHPVersionCheck.php
+@@ -151,7 +151,10 @@
+ 	 * Displays an error, if the vendor/autoload.php file could not be found.
+ 	 */
+ 	function checkVendorExistence() {
+-		if ( !file_exists( dirname( __FILE__ ) . '/../vendor/autoload.php' ) ) {
++		$autoload = defined( 'MW_VENDOR_DIR' )
++			? MW_VENDOR_DIR . '/autoload.php'
++			: dirname( __FILE__ ) . '/../vendor/autoload.php';
++		if ( !file_exists( $autoload ) ) {
+ 			$shortText = "Installing some external dependencies (e.g. via composer) is required.";
+ 
+ 			$longText = "Error: You are missing some external dependencies. \n"
+diff --git a/includes/Setup.php b/includes/Setup.php
+index 5cc9a96..7ea402c 100644
+--- a/includes/Setup.php
++++ b/includes/Setup.php
+@@ -54,9 +54,14 @@
+ // Load global functions
+ require_once "$IP/includes/GlobalFunctions.php";
+ 
++# Vendor directory path.
++if ( ! defined( 'MW_VENDOR_DIR' ) ) {
++	define( 'MW_VENDOR_DIR', "$IP/vendor/" );
++}
++
+ // Load composer's autoloader if present
+-if ( is_readable( "$IP/vendor/autoload.php" ) ) {
+-	require_once "$IP/vendor/autoload.php";
++if ( is_readable( MW_VENDOR_DIR . '/autoload.php' ) ) {
++	require_once MW_VENDOR_DIR . '/autoload.php';
+ }
+ 
+ // Assert that composer dependencies were successfully loaded

@@ -6,12 +6,34 @@
     "prefer-stable": true,
     "require": {
         "composer/installers": "dev-master",
-        "mediawiki/core": "dev-master"
+        "mediawiki/core": "dev-master",
+        "mediawiki/patches": "~1.0"
     },
     "repositories": {
         "mediawiki": {
             "type": "vcs",
             "url": "https://github.com/wikimedia/mediawiki"
+        },
+        "patches": {
+            "type": "package",
+            "package": {
+                "type": "metapackage",
+                "name": "mediawiki/patches",
+                "version": "1.0.1",
+                "require": {
+                    "netresearch/composer-patches-plugin": "~1.0"
+                },
+                "extra": {
+                    "patches": {
+                        "mediawiki/core": [
+                            {
+                                "title": "Allow the vendor directory to be configurable",
+                                "url": "./patches/eda6bb9.diff"
+                            }
+                        ]
+                    }
+                }
+            }
         }
     },
     "extra": {
