@@ -9,11 +9,11 @@ function mwProjectDefaultConfig() {
   extract($GLOBALS, EXTR_REFS);
 
   // Set the project default values.
-  $wgResourceBasePath = '/core/';
+  $wgResourceBasePath = '/core';
   $wgExtensionDirectory = __DIR__ . '/html/extensions/';
-  $wgExtensionAssetsPath = '/extensions/';
+  $wgExtensionAssetsPath = '/extensions';
   $wgStyleDirectory = __DIR__ . '/html/skins/';
-  $wgStylePath = '/skins/';
+  $wgStylePath = '/skins';
 
   // If the config file is unreadable, throw the standard error.
   if ( !is_readable( MW_CONFIG_FILE ) ) {
